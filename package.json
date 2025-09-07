@@ -31,13 +31,13 @@
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.42.0"
+    "typescript-eslint": "^8.42.0",
+    "supertest": "^7.1.4",
+    "jasmine": "^5.10.0",
+    "jasmine-spec-reporter": "^7.0.0"
   },
   "dependencies": {
     "express": "^5.1.0",
-    "jasmine": "^5.10.0",
-    "jasmine-spec-reporter": "^7.0.0",
-    "sharp": "^0.34.3",
-    "supertest": "^7.1.4"
+    "sharp": "^0.34.3"
   }
 }

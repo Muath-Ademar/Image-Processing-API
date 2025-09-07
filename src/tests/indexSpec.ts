@@ -27,6 +27,12 @@ describe('test for api endpoint', () => {
     );
     expect(response.status).toBe(200);
   });
+  it('gets the api endpoint when one of width or height is messing', async () => {
+    const response = await request.get(
+      `/api/images?fileName=${fileName}&height=${height}`
+    );
+    expect(response.status).toBe(200);
+  });
 
   describe('tests for api endpoint error handling', () => {
     it("doesn't get the api endpoint when no values are entered", async () => {
@@ -44,6 +50,18 @@ describe('test for api endpoint', () => {
         `/api/images?fileName=${wrongFileName}&width=${width}&height=${height}`
       );
       expect(response.status).toBe(404);
+    });
+    it("doesn't get the api endpoint when values are invalid", async () => {
+      const response = await request.get(
+        `/api/images?fileName=${fileName}&width=${width}&height=dsds`
+      );
+      expect(response.status).toBe(400);
+    });
+    it("doesn't get the api endpoint when values are 0 or negative", async () => {
+      const response = await request.get(
+        `/api/images?fileName=${fileName}&width=${-1}&height=${0}`
+      );
+      expect(response.status).toBe(400);
     });
   });
 });
