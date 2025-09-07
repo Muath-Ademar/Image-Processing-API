@@ -1,18 +1,18 @@
 # Image Processing API
 
-**Version:** 1.0.0  
+**Version:** 1.0.0
 
-A lightweight **TypeScript**-based REST API built with **Express**, designed specifically for **resizing images** using the **Sharp** library. Users can provide an image name and desired width and height, and the API will return the resized image.  
+A lightweight **TypeScript**-based REST API built with **Express**, designed specifically for **resizing images** using the **Sharp** library. Users can provide an image name and desired width and height, and the API will return the resized image.
 
 ---
 
 ## 🚀 Features
 
-- Resize images to specific width and height  
-- Handles single images from a predefined folder  
-- Returns resized images as JPG  
-- Built with **Express** and **TypeScript**  
-- Tested using **Jasmine** and **Supertest**  
+- Resize images to specific width and height
+- Handles single images from a predefined folder
+- Returns resized images as JPG
+- Built with **Express** and **TypeScript**
+- Tested using **Jasmine** and **Supertest**
 - Code quality enforced with **ESLint** and **Prettier**
 
 ---
@@ -47,16 +47,17 @@ npm install
 
 The following npm scripts are available in this project:
 
-- `npm run build` → Compiles the TypeScript source into JavaScript using `tsc`.  
-- `npm run start` → Launches the server with `nodemon`, watching `src/index.ts`.  
-- `npm run test` → Builds the project and runs unit/integration tests with Jasmine.  
-- `npm run jasmine` → Runs Jasmine tests directly, without rebuilding.  
-- `npm run lint` → Runs ESLint on the built `dist/index.js` to check for code quality.  
+- `npm run build` → Compiles the TypeScript source into JavaScript using `tsc`.
+- `npm run start` → Launches the server with `nodemon`, watching `src/index.ts`.
+- `npm run test` → Builds the project and runs unit/integration tests with Jasmine.
+- `npm run jasmine` → Runs Jasmine tests directly, without rebuilding.
+- `npm run lint` → Runs ESLint on the built `dist/index.js` to check for code quality.
 - `npm run prettier` → Formats all code using Prettier for consistent style.
 
 ---
 
 📂 Project Structure
+
 ```bash
 
 ├── src/
@@ -91,13 +92,16 @@ The following npm scripts are available in this project:
 ├── package-lock.json
 └── tsconfig.json
 ```
+
 ---
 
 ⚡ Usage Example
+
 ```bash
 # Example request
 GET "http://localhost:8000/api/images?fileName=example&width=400&height=400" -o output.jpg
 ```
+
 Notes:
 
 - fileName → name of the image in the input folder (without extension)
@@ -108,10 +112,12 @@ Notes:
 ---
 
 🧪 Testing
+
 ```bash
 Copy code
 npm test        # Build and run Jasmine tests
 npm run jasmine # Run tests without rebuilding
 ```
+
 👤 Author
 Muath Ademar
