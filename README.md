@@ -25,7 +25,7 @@ A lightweight **TypeScript**-based REST API built with **Express**, designed spe
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width="40" height="40"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" width="40" height="40"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" alt="ESLint" width="40" height="40"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg" alt="Prettier" width="40" height="40"/>
+<img src="https://img.shields.io/badge/Prettier-Format-blue" alt="Prettier"/>
   <img src="https://img.shields.io/badge/Sharp-Image%20Processing-blue" alt="Sharp"/>
   <img src="https://img.shields.io/badge/Jasmine-Testing-purple" alt="Jasmine"/>
   <img src="https://img.shields.io/badge/Supertest-HTTP%20Testing-lightgrey" alt="Supertest"/>
@@ -58,23 +58,45 @@ The following npm scripts are available in this project:
 
 📂 Project Structure
 ```bash
-Copy code
+
 ├── src/
-│   └── index.ts            # Main server and API route
-├── dist/                   # Compiled JavaScript output
-├── spec/                   # Jasmine test files
-├── processed/              # Resized image outputs
-├── .eslintrc.js            # ESLint config
-├── .prettierrc             # Prettier config
-├── tsconfig.json           # TypeScript config
-└── package.json            # Scripts and dependencies
+│ ├── index.ts # Main server and API route
+│ ├── middleware/ # Middleware functions
+│ │ └── fileCheck.ts
+│ ├── utilities/ # Utility functions (e.g., image resizing)
+│ │ └── resize.ts
+│ └── tests/ # Test files
+│ ├── helpers/
+│ │ └── reporter.ts
+│ └── indexSpec.ts
+├── dist/ # Compiled JavaScript output
+│ ├── index.js
+│ ├── middleware/
+│ │ └── fileCheck.js
+│ ├── utilities/
+│ │ └── resize.js
+│ └── tests/
+│ ├── helpers/
+│ │ └── reporter.js
+│ └── indexSpec.js
+├── disk/ # Source images for resizing
+├── processed/ # Resized image outputs
+├── spec/ # Jasmine configuration
+│ └── support/
+│ └── jasmine.json
+├── .gitignore
+├── .prettierrc
+├── eslint.config.js
+├── package.json
+├── package-lock.json
+└── tsconfig.json
 ```
 ---
 
 ⚡ Usage Example
 ```bash
 # Example request
-curl -X GET "http://localhost:8000/api/images?fileName=example&width=400&height=400" -o output.jpg
+GET "http://localhost:8000/api/images?fileName=example&width=400&height=400" -o output.jpg
 ```
 Notes:
 
