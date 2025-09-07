@@ -8,11 +8,11 @@ export const imageProcessing = async (
   height: number,
   fileName: string
 ): Promise<sharp.OutputInfo> => {
-  if (Number.isNaN(width) || Number.isNaN(height)) {
-    if (!Number.isNaN(height) && Number.isNaN(width)) width = height;
-    else if (!Number.isNaN(width) && Number.isNaN(height)) height = width;
-    return Promise.reject(new Error('width and height must be numbers'));
-  } else if (!fileName)
+  if (!Number.isNaN(height) && Number.isNaN(width)) width = height;
+  else if (!Number.isNaN(width) && Number.isNaN(height)) height = width;
+  else if (Number.isNaN(width) && Number.isNaN(height))
+    return Promise.reject(new Error('width and height must be provided'));
+  else if (!fileName)
     return Promise.reject(new Error('Please enter the image name'));
   else if (width <= 0 || height <= 0)
     return Promise.reject(

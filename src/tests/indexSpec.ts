@@ -27,6 +27,7 @@ describe('test for api endpoint', () => {
     );
     expect(response.status).toBe(200);
   });
+
   describe('tests for api endpoint error handling', () => {
     it("doesn't get the api endpoint when no values are entered", async () => {
       const response = await request.get(`/api/images`);
@@ -43,12 +44,6 @@ describe('test for api endpoint', () => {
         `/api/images?fileName=${wrongFileName}&width=${width}&height=${height}`
       );
       expect(response.status).toBe(404);
-    });
-    it("doesn't get the api endpoint when values are invalid", async () => {
-      const response = await request.get(
-        `/api/images?fileName=${fileName}&width=ytyt&height=${height}`
-      );
-      expect(response.status).toBe(400);
     });
   });
 });

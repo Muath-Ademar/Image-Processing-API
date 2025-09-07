@@ -16,22 +16,8 @@ app.get(
   async (req: express.Request, res: express.Response): Promise<void> => {
     const params = req.query;
     const fileName = String(params.fileName);
-    let width = Number(params.width);
-    let height = Number(params.height);
-    if (!Number.isNaN(height) && Number.isNaN(width)) width = height;
-    else if (!Number.isNaN(width) && Number.isNaN(height)) height = width;
-    else if (!fileName) {
-      res.status(400).json({ msg: 'please enter an image name' });
-      return;
-    } else if (Number.isNaN(width) || Number.isNaN(height)) {
-      res.status(400).json({ msg: 'width and height must be numbers' });
-      return;
-    } else if (width <= 0 || height <= 0) {
-      res
-        .status(400)
-        .json({ msg: 'width and height must be positive numbers' });
-    }
-
+    const width = Number(params.width);
+    const height = Number(params.height);
     if (!fileNames.includes(path.parse(fileName).name)) {
       res.status(404).json({ msg: 'Image does not exist in your folder' });
       return;

@@ -13,7 +13,7 @@ const fileCheck = (
   let height = Number(req.query.height) as number;
   const resizedFiles = fs.readdirSync(outputFolder);
   const resizedFilesNames = resizedFiles.map((f) => path.parse(f).name);
-  if (Number.isNaN(width) || Number.isNaN(height)) {
+  if (Number.isNaN(width) && Number.isNaN(height)) {
     res.status(400).json({ msg: 'width and height must be numbers' });
     return;
   } else if (!Number.isNaN(height) && Number.isNaN(width)) width = height;
